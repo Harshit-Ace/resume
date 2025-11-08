@@ -1,132 +1,116 @@
 # resume
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <title>Harshit — Jetpack Mission Log</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <style>
-    :root{
-      --bg:#04121a; --card:#0b2734; --accent:#ffd44d; --muted:#9fd6e6; --panel:#083443;
-      font-family: Inter, Roboto, Arial, sans-serif;
-    }
-    body{background:linear-gradient(180deg,#031018 0%, #05222a 100%); color:#e6f7ff; margin:0; padding:28px;}
-    .wrap{max-width:920px;margin:0 auto;}
-    header{display:flex;gap:16px;align-items:center}
-    .avatar{width:88px;height:88px;border-radius:12px;background:linear-gradient(90deg,#ffd84d,#ffb84d);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#07202a}
-    h1{margin:0;font-size:26px}
-    .sub{color:var(--muted); margin-top:6px}
-    .grid{display:grid;grid-template-columns:1fr 300px;gap:18px;margin-top:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,0.5)}
-    .section{margin-bottom:12px}
-    .title{font-size:12px;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
-    .stat-row{display:flex;gap:12px;flex-wrap:wrap}
-    .stat{background:var(--panel);padding:10px;border-radius:8px;min-width:140px}
-    .skill{display:flex;justify-content:space-between;margin:6px 0}
-    .badge{display:inline-block;background:#083b46;color:#9feaff;padding:6px 8px;border-radius:8px;margin-right:6px;font-size:12px}
-    footer{margin-top:18px;color:var(--muted);font-size:13px}
-    @media (max-width:880px){ .grid{grid-template-columns:1fr} .avatar{width:66px;height:66px} }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="avatar">H</div>
-      <div>
-        <h1>Harshit — Jetpack Mission Log</h1>
-        <div class="sub">Reliability-focused Engineer • Project Lead • M.Sc. Informatics (pursuing)</div>
-        <div style="margin-top:8px;color:var(--muted)">Contact: rharshit1111@gmail.com • github.com/Harshit-Ace • New Delhi</div>
-      </div>
-    </header>
+import tkinter as tk
+from tkinter import ttk
 
-    <div class="grid">
-      <div>
-        <div class="card">
-          <div class="section">
-            <div class="title">Run Summary</div>
-            <div>Open to roles that value systems thinking, telemetry-first development, and reliable delivery. Playstyle: iterative, communicative, and delivery-focused.</div>
-          </div>
+# Root window
+root = tk.Tk()
+root.title("Harshit — Jetpack Mission Log")
+root.configure(bg="#031018")
+root.geometry("1000x700")
 
-          <div class="section">
-            <div class="title">Jetpack Stats</div>
-            <div class="stat-row">
-              <div class="stat"><strong>Level</strong><div>6</div></div>
-              <div class="stat"><strong>XP</strong><div>2,800 / 5,000</div></div>
-              <div class="stat"><strong>Distance</strong><div>Hospital Management System MVP</div></div>
-            </div>
-          </div>
+# Styles
+style = ttk.Style()
+style.configure("Card.TFrame", background="#0b2734", padding=18, relief="raised")
+style.configure("Title.TLabel", foreground="#9fd6e6", font=("Arial", 9, "bold"))
+style.configure("Section.TLabel", foreground="#e6f7ff", font=("Arial", 10))
+style.configure("Muted.TLabel", foreground="#9fd6e6", font=("Arial", 9))
+style.configure("Badge.TLabel", background="#083b46", foreground="#9feaff", padding=4, font=("Arial", 9), relief="ridge")
 
-          <div class="section">
-            <div class="title">Gadgets & Upgrades</div>
-            <div class="skill"><div>Python</div><div>Intermediate</div></div>
-            <div class="skill"><div>SQL</div><div>Intermediate</div></div>
-            <div class="skill"><div>C / C++</div><div>Intermediate</div></div>
-            <div class="skill"><div>Java</div><div>Beginner</div></div>
-            <div class="skill"><div>HTML / CSS</div><div>Beginner</div></div>
-            <div class="skill"><div>Power BI</div><div>Beginner</div></div>
-          </div>
+# Header
+header = tk.Frame(root, bg="#031018")
+header.pack(pady=10, anchor="w")
 
-          <div class="section">
-            <div class="title">Run Logs</div>
-            <div style="border-left:4px solid var(--accent);padding-left:10px;margin-bottom:10px">
-              <strong>Hospital Management System — Lead Developer</strong> <div style="color:var(--muted)">Solo project</div>
-              <div>Built a system to manage patient records, staff, doctors, and appointments. Implemented database models, backend flows, and admin views; added basic Power BI reports for operational insight.</div>
-            </div>
-          </div>
-        </div>
+avatar = tk.Label(header, text="H", bg="#ffd44d", fg="#07202a", font=("Arial", 20, "bold"), width=4, height=2)
+avatar.pack(side="left", padx=10)
 
-        <div class="card" style="margin-top:14px">
-          <div class="section">
-            <div class="title">Medals & Achievements</div>
-            <div><span class="badge">Delivered MVP</span><span class="badge">Strong Communicator</span><span class="badge">Project Management</span></div>
-          </div>
+info = tk.Frame(header, bg="#031018")
+info.pack(side="left")
 
-          <div class="section">
-            <div class="title">Power-up Paths</div>
-            <div>Plans to upskill in infrastructure (CI/CD, containers), deepen database skills, and expand full-stack capabilities.</div>
-          </div>
-        </div>
-      </div>
+tk.Label(info, text="Harshit — Jetpack Mission Log", font=("Arial", 18), fg="#e6f7ff", bg="#031018").pack(anchor="w")
+tk.Label(info, text="Reliability-focused Engineer • Project Lead • M.Sc. Informatics (pursuing)", fg="#9fd6e6", bg="#031018").pack(anchor="w")
+tk.Label(info, text="Contact: rharshit1111@gmail.com • github.com/Harshit-Ace • New Delhi", fg="#9fd6e6", bg="#031018").pack(anchor="w", pady=4)
 
-      <aside>
-        <div class="card">
-          <div class="section">
-            <div class="title">Education</div>
-            <div>G.L.T Saraswati Bal Mandir, Nehru Nagar</div>
-            <div>BSc (H) Electronics</div>
-            <div style="margin-top:6px;color:var(--muted)">MSc Informatics — pursuing</div>
-          </div>
+# Main content
+main = tk.Frame(root, bg="#031018")
+main.pack(padx=20, pady=10, fill="both", expand=True)
 
-          <div class="section">
-            <div class="title">Loadout</div>
-            <div>Python · SQL · C/C++ · Java · HTML/CSS · Power BI</div>
-          </div>
+# Left column
+left = ttk.Frame(main, style="Card.TFrame")
+left.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 
-          <div class="section">
-            <div class="title">Player Traits</div>
-            <div style="color:var(--muted)">Good communicator • Project management skills • Rapid learner</div>
-          </div>
+# Run Summary
+ttk.Label(left, text="Run Summary", style="Title.TLabel").pack(anchor="w")
+ttk.Label(left, text="Open to roles that value systems thinking, telemetry-first development, and reliable delivery.", style="Section.TLabel", wraplength=500).pack(anchor="w", pady=5)
 
-          <div class="section">
-            <div class="title">Next Mission</div>
-            <button style="background:var(--accent);border:none;padding:10px;border-radius:8px;color:#07202a;font-weight:700;width:100%">Request Tailored Dossier / PDF</button>
-          </div>
-        </div>
+# Jetpack Stats
+ttk.Label(left, text="Jetpack Stats", style="Title.TLabel").pack(anchor="w", pady=(10, 0))
+stats = tk.Frame(left, bg="#083443")
+stats.pack(anchor="w", pady=5)
+for label, value in [("Level", "6"), ("XP", "2,800 / 5,000"), ("Distance", "Hospital Management System MVP")]:
+    stat = tk.Frame(stats, bg="#083443", padx=10, pady=5)
+    stat.pack(side="left", padx=5)
+    tk.Label(stat, text=label, fg="#e6f7ff", bg="#083443", font=("Arial", 10, "bold")).pack()
+    tk.Label(stat, text=value, fg="#e6f7ff", bg="#083443").pack()
 
-        <div class="card" style="margin-top:14px">
-          <div class="section">
-            <div class="title">Contact</div>
-            <div>rharshit1111@gmail.com</div>
-            <div style="color:var(--muted);margin-top:6px">github.com/Harshit-Ace • New Delhi</div>
-          </div>
-        </div>
-      </aside>
-    </div>
+# Skills
+ttk.Label(left, text="Gadgets & Upgrades", style="Title.TLabel").pack(anchor="w", pady=(10, 0))
+skills = [("Python", "Intermediate"), ("SQL", "Intermediate"), ("C / C++", "Intermediate"),
+          ("Java", "Beginner"), ("HTML / CSS", "Beginner"), ("Power BI", "Beginner")]
+for skill, level in skills:
+    row = tk.Frame(left, bg="#0b2734")
+    row.pack(anchor="w", fill="x")
+    tk.Label(row, text=skill, fg="#e6f7ff", bg="#0b2734").pack(side="left")
+    tk.Label(row, text=level, fg="#e6f7ff", bg="#0b2734").pack(side="right")
 
-    <footer>
-      Replace or add links (portfolio, repo, phone) and I will regenerate a tailored PDF or job-specific version.
-    </footer>
-  </div>
-</body>
-</html>
+# Run Logs
+ttk.Label(left, text="Run Logs", style="Title.TLabel").pack(anchor="w", pady=(10, 0))
+log = tk.Frame(left, bg="#0b2734", padx=10, pady=5)
+log.pack(anchor="w", fill="x")
+tk.Label(log, text="Hospital Management System — Lead Developer", fg="#ffd44d", bg="#0b2734", font=("Arial", 10, "bold")).pack(anchor="w")
+tk.Label(log, text="Solo project", fg="#9fd6e6", bg="#0b2734").pack(anchor="w")
+tk.Label(log, text="Built a system to manage patient records, staff, doctors, and appointments. Implemented backend flows and Power BI reports.", fg="#e6f7ff", bg="#0b2734", wraplength=500).pack(anchor="w")
+
+# Achievements
+achievements = ttk.Frame(left, style="Card.TFrame")
+achievements.pack(anchor="w", pady=10, fill="x")
+ttk.Label(achievements, text="Medals & Achievements", style="Title.TLabel").pack(anchor="w")
+for badge in ["Delivered MVP", "Strong Communicator", "Project Management"]:
+    ttk.Label(achievements, text=badge, style="Badge.TLabel").pack(side="left", padx=4)
+
+# Power-up Paths
+ttk.Label(achievements, text="Power-up Paths", style="Title.TLabel").pack(anchor="w", pady=(10, 0))
+ttk.Label(achievements, text="Plans to upskill in CI/CD, containers, databases, and full-stack development.", style="Section.TLabel", wraplength=500).pack(anchor="w")
+
+# Right column (Sidebar)
+right = ttk.Frame(main, style="Card.TFrame")
+right.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
+
+# Education
+ttk.Label(right, text="Education", style="Title.TLabel").pack(anchor="w")
+for edu in ["G.L.T Saraswati Bal Mandir, Nehru Nagar", "BSc (H) Electronics", "MSc Informatics — pursuing"]:
+    ttk.Label(right, text=edu, style="Section.TLabel").pack(anchor="w")
+
+# Loadout
+ttk.Label(right, text="Loadout", style="Title.TLabel").pack(anchor="w", pady=(10, 0))
+ttk.Label(right, text="Python · SQL · C/C++ · Java · HTML/CSS · Power BI", style="Section.TLabel").pack(anchor="w")
+
+# Traits
+ttk.Label(right, text="Player Traits", style="Title.TLabel").pack(anchor="w", pady=(10, 0))
+ttk.Label(right, text="Good communicator • Project management skills • Rapid learner", style="Muted.TLabel").pack(anchor="w")
+
+# Next Mission
+ttk.Label(right, text="Next Mission", style="Title.TLabel").pack(anchor="w", pady=(10, 0))
+tk.Button(right, text="Request Tailored Dossier / PDF", bg="#ffd44d", fg="#07202a", font=("Arial", 10, "bold")).pack(fill="x", pady=5)
+
+# Contact
+contact = ttk.Frame(right, style="Card.TFrame")
+contact.pack(anchor="w", pady=10, fill="x")
+ttk.Label(contact, text="Contact", style="Title.TLabel").pack(anchor="w")
+ttk.Label(contact, text="rharshit1111@gmail.com", style="Section.TLabel").pack(anchor="w")
+ttk.Label(contact, text="github.com/Harshit-Ace • New Delhi", style="Muted.TLabel").pack(anchor="w")
+
+# Footer
+tk.Label(root, text="Replace or add links (portfolio, repo, phone) and I will regenerate a tailored PDF.", fg="#9fd6e6", bg="#031018", font=("Arial", 9)).pack(pady=10)
+
+root.mainloop()
+
